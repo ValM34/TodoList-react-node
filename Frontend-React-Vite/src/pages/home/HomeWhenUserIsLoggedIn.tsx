@@ -28,9 +28,6 @@ function HomeWhenUserIsLoggedIn() {
 
   return (
     <>
-      <div>
-        <a href="./task/create">Créer une tâche</a>
-      </div>
       <ul>
         {tasks !== null ? tasks.map(task => {
           return(
