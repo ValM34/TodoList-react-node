@@ -4,6 +4,7 @@ const taskController = require('../controllers/taskController');
 const auth = require('../middleware/auth');
 
 router.get('/all', auth, taskController.getAll);
+router.get('/one/:id', auth, taskController.getOneById);
 router.post('/create', auth, taskController.create);
 router.post('/update', auth, taskController.update);
 router.delete('/delete', auth, taskController.delete);

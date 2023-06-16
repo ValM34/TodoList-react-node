@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "presentation/todolist/components/DeleteTask.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

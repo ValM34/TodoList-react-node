@@ -1,3 +1,5 @@
+import { Button } from 'antd';
+
 function DeleteTask({ taskId, removeTask }) {
   const deleteTask = () => {
     const ls = localStorage.getItem("token");
@@ -20,7 +22,12 @@ function DeleteTask({ taskId, removeTask }) {
   
 
   return (
-    <button onClick={deleteTask}>Supprimer</button>
+    <Button
+      type="primary"
+      onClick={deleteTask}
+    >
+      Supprimer
+    </Button>
   );
 }
 

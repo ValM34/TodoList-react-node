@@ -21,28 +21,3 @@ ul {
 * {
   font-family: 'Montserrat', 'sans-serif';
 }
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-// HomeWhenUserIsLoggedIn
-.is-done {
-  display: inline-block;
-  margin-left: 10px;
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
-  background-color: green;
-}
-
-.is-not-done {
-  display: inline-block;
-  margin-left: 10px;
-  vertical-align: middle;
-  width: 20px;
-  height: 20px;
-  background-color: red;
-}

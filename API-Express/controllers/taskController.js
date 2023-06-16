@@ -7,6 +7,14 @@ exports.getAll = async (req, res, next) => {
     })
 }
 
+exports.getOneById = async (req, res, next) => {
+  const task = await Task.findAll({ where: { id: req.params.id } })
+    .then(task => {
+      console.log(task)
+      res.status(200).json(task);
+    })
+}
+
 exports.create = async (req, res, next) => {
   const newTask = await Task.create({
     content: req.body.content

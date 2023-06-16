@@ -1,0 +1,27 @@
+.header-main {
+  padding: 0 50px;
+  background-color: $c-green;
+  display: flex;
+  justify-content: center;
+
+  .header-main-container {
+    max-width: 1200px;
+    width: 100%;
+
+    nav {
+      max-width: 1200px;
+  
+      > a {
+        color: $c-white;
+        text-decoration: none;
+        padding: 20px 10px;
+        display: inline-block;
+        transition: background-color 0.2s ease-in-out;
+  
+        &:hover {
+          background-color: lighten($c-green, 5%);
+        }
+      }
+    }
+  }
+}

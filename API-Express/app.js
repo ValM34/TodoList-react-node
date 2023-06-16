@@ -5,7 +5,6 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 require('dotenv').config();
 
-var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
 var taskRouter = require('./routes/task');
 
@@ -25,7 +24,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/task', taskRouter);
 

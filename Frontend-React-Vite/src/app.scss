@@ -1,0 +1,7 @@
+$c-black: black;
+$c-white: white;
+$c-green: #00b96b;
+$c-red: red;
+
+@import './layouts/header/header.scss';
+@import '../presentation/todolist/components/taskList.scss';

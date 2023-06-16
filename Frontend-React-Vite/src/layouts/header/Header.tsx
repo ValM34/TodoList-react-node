@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 
-function Header() {
+function Header({ isLoggedIn }) {
 
   const navigate = useNavigate();
 
@@ -13,16 +13,20 @@ function Header() {
     navigate("/");
   }
 
-  console.log(window.location.pathname)
-
   return (
-    <header>
-      <nav>
-        <Link to="/">Accueil</Link>
-        <Link to="/task/create">Créer une tâche</Link>
-        <Link to="/connexion">Connexion</Link>
-        <a onClick={disconnect} href="/">Déconnexion</a>
-      </nav>
+    <header className="header-main">
+      <div className="header-main-container">
+        <nav>
+          <Link to="/">Accueil</Link>
+          {isLoggedIn ? 
+            <>
+              <Link to="/task/create">Créer une tâche</Link>
+              <a onClick={disconnect} href="/">Déconnexion</a>
+            </>
+            : ""
+          }
+        </nav>
+      </div>
     </header>
   );
 }
