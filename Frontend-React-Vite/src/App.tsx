@@ -8,7 +8,6 @@ import Header from "./layouts/header/Header";
 import Error404 from "./pages/errors/error404/Error404";
 import ProductDetailPage from "./pages/productDetailPagePage/ProductDetailPagePage";
 import TaskDetailPage from "./pages/taskDetailPagePage/TaskDetailPagePage";
-import TaskListPagePage from "./pages/taskListPagePage/TaskListPagePage";
 import { ConfigProvider, theme, Breadcrumb, Layout } from 'antd';
 import './app.scss';
 
