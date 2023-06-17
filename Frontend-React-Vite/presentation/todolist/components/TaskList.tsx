@@ -15,17 +15,17 @@ const TaskList: React.FC<TaskListProps> = ({ model }) => {
   const removeTask = (id) => {
     const taskIndex = tasks.findIndex(task => task['id'] == id);
     if(taskIndex !== -1){
-      console.log('removetask')
-
+      console.log('remove task from cache')
       const updatedTask = [...tasks];
       updatedTask.splice(taskIndex, 1);
+      localStorage.setItem("tasksList", JSON.stringify(updatedTask));
       setTasks(updatedTask);
     }
   }
 
   return (
     <ul>
-      <Row gutter={[16, 16]} style={{ padding: "20px 0" }}>
+      <Row gutter={[16, 16]}>
         {tasks.map((task: TaskModel) => (
           <Col span={8} key={task.id}>
             <Card bordered={false}>

@@ -36,8 +36,7 @@ export class TaskLocalDataSourceImpl implements TaskLocalDataSource {
     if (!jsonString) {
       throw new Error("Tasks not found in cache");
     }
-    const tasksList = JSON.parse(jsonString) as string[];
-    const taskDtos = TaskDto.fromJsonArray(tasksList);
+    const taskDtos = TaskDto.fromJsonArray(jsonString);
     return taskDtos;
   }
 

@@ -57,7 +57,7 @@ function App() {
       <Router>
         <Layout className="layout" style={{ background: "white" }}>
           <Header isLoggedIn={isLoggedIn} />
-          <Content style={{ padding: '0 50px', display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <Content style={{ padding: '0 50px', display: "flex", flexDirection: "column", alignItems: "center", minHeight: "calc(100vh - 67px - 58px)" }}>
             {/*<Breadcrumb
               items={[
                 { title: 'Home' },
@@ -66,7 +66,7 @@ function App() {
               ]}
               style={{ maxWidth: "1200px", width: "100%" }}
             />*/}
-            <div className="site-layout-content" style={{ background: 'white', maxWidth: "1200px", width: "100%" }}>
+            <div className="site-layout-content" style={{ background: 'white', maxWidth: "1200px", width: "100%", padding: "20px 0" }}>
                 <Routes>
                   <Route path="/" element={<Home connectGlobal={connectGlobal} />} />
                   <Route path="/user" element={<User />} />
@@ -78,9 +78,9 @@ function App() {
                 </Routes>
             </div>
           </Content>
-          <div style={{ display: "flex", justifyContent: "center", padding: "24px 50px" }}>
+          <div style={{ display: "flex", justifyContent: "center", padding: "24px 50px", background: "#00b96b" }}>
             <div style={{ display: "block", width: "100%", maxWidth: "1200px"}}>
-              <Footer style={{ padding: "0", background: "white" }}>Todolist créée par Valentin Moreau | Stack: React.js (Vite) - Express.js - MySQL - AntDesign - React router</Footer>
+              <Footer style={{ padding: "0", background: "#00b96b", color: "white" }}>Todolist créée par Valentin Moreau | Stack: React.js (Vite) - Express.js - MySQL - AntDesign - React router</Footer>
             </div>
           </div>
         </Layout>

@@ -19,7 +19,7 @@ exports.create = async (req, res, next) => {
   const newTask = await Task.create({
     content: req.body.content
   })
-    .then(() => res.status(201).json({message: "TASK CREATED"}))
+    .then((newTask) => res.status(201).json({message: "TASK CREATED", task: newTask}))
 }
 
 exports.update = async (req, res, next) => {

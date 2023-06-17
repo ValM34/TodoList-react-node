@@ -20,12 +20,6 @@ export class TaskDto {
     );
   }
 
-  toDomainArray(taskDtos: TaskDto[]): Task[] {
-    return taskDtos.map((taskDto) => {
-      return taskDto.toDomain();
-    });
-  }
-
   static fromDomain(task: Task): TaskDto {
     return new TaskDto(
       task.id,
@@ -58,8 +52,9 @@ export class TaskDto {
   }
 
   static fromJsonArray(jsonArray: string[]): TaskDto[] {
-    return jsonArray.map((json) => {
-      const { id, content, isDone, createdAt, updatedAt } = JSON.parse(json);
+    const jsonParsed = JSON.parse(jsonArray);
+    return jsonParsed.map((json) => {
+      const { id, content, isDone, createdAt, updatedAt } = json;
       return new TaskDto(id, content, isDone, createdAt, updatedAt);
     });
   }

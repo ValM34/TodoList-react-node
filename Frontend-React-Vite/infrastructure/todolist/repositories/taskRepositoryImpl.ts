@@ -36,12 +36,11 @@ export class TaskRepositoryImpl implements TaskRepository {
   async getAllTasks(): Promise<Task[]> {
     // Check if task exists in cache
     try {
-      const taskDto =
-        this.taskLocalDataSource.getAllTasksFromCache();
+      const tasksDto = this.taskLocalDataSource.getAllTasksFromCache();
       // Convert to domain
-      const task = taskDto.toDomain();
+      const tasks = tasksDto.map(taskDto => taskDto.toDomain());
       // Return domain
-      return task;
+      return tasks;
     } catch (error) {
       console.log("No task in cache, fetch from remote");
       // Task not found in cache so fetch it from remote

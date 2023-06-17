@@ -25,14 +25,6 @@ const TaskDetailPage: React.FC = (props) => {
       ) : (
         taskListFetcher.taskList && <TaskList model={taskListFetcher.taskList} />
       )}
-      <Button
-        type="primary"
-        onClick={() => {
-          localStorage.clear();
-        }}
-      >
-        Clear cache
-      </Button>
     </main>
   );
 };
