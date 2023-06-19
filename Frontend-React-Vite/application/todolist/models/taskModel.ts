@@ -7,6 +7,8 @@ export class TaskModel {
     public readonly isDone: boolean,
     public readonly createdAt: string,
     public readonly updatedAt: string,
+    public readonly userId: string,
+    public readonly title: string,
   ) {}
 
   // Domain conversion methods
@@ -17,6 +19,8 @@ export class TaskModel {
       this.isDone,
       this.createdAt,
       this.updatedAt,
+      this.userId,
+      this.title,
     );
   }
 
@@ -28,6 +32,8 @@ export class TaskModel {
       task.isDone,
       task.createdAt,
       task.updatedAt,
+      task.userId,
+      task.title,
     );
   }
 
@@ -38,7 +44,9 @@ export class TaskModel {
         task.content,
         task.isDone,
         task.createdAt,
-        task.updatedAt
+        task.updatedAt,
+        task.userId,
+        task.title,
       );
     });
   }

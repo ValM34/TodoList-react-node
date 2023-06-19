@@ -4,7 +4,6 @@ import { Button, Checkbox, Form, Input } from 'antd';
 const SubscriptionForm: React.FC = ({connect}) => {
   
   const onFinish = (values: any) => {
-    console.log('Success:', values);
     fetch('http://127.0.0.1:3000/user/subscription', {
       method: "POST",
       headers: {"Content-Type": "application/json"},
@@ -27,7 +26,7 @@ const SubscriptionForm: React.FC = ({connect}) => {
 
   return (
     <Form
-      name="basic"
+      name="subscription"
       labelCol={{ span: 8 }}
       wrapperCol={{ span: 16 }}
       style={{ maxWidth: 600 }}

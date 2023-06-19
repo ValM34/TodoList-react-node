@@ -27,7 +27,7 @@ export const TaskListFetcherProvider: React.FC<{
     try {
       const usecase = new GetAllTasks();
       const taskList = await usecase.execute();
-
+      
       const taskListModel = TaskModel.fromDomainArray(taskList);
       setTaskList(taskListModel);
       setState(TaskFetcherState.SUCCESS);

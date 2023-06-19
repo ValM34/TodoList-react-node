@@ -1,6 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
+import { DarkModeContext } from "../../DarkModeProvider";
+import ContextComponentTest from '../../../src/ContextComponentTest';
 
 function Header({ isLoggedIn }) {
+
+  const {darkMode} = useContext(DarkModeContext);
 
   const navigate = useNavigate();
 
@@ -14,7 +19,7 @@ function Header({ isLoggedIn }) {
   }
 
   return (
-    <header className="header-main">
+    <header className="header-main" style={{backgroundColor: darkMode.primaryColor}}>
       <div className="header-main-container">
         <nav>
           <Link to="/">Accueil</Link>
@@ -25,6 +30,7 @@ function Header({ isLoggedIn }) {
             </>
             : ""
           }
+          <ContextComponentTest />
         </nav>
       </div>
     </header>

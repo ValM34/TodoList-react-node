@@ -1,8 +1,10 @@
 const Task = require('../models/task');
 
 exports.getAll = async (req, res, next) => {
-  const tasks = await Task.findAll()
+  const tasks = await Task.findAll({ where: { userId: req.auth.userId } })
     .then(tasks => {
+      console.log(tasks)
+      console.log(req.auth.userId)
       res.status(200).json(tasks);
     })
 }
@@ -17,7 +19,9 @@ exports.getOneById = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
   const newTask = await Task.create({
-    content: req.body.content
+    content: req.body.content,
+    userId: req.auth.userId,
+    title: req.body.title
   })
     .then((newTask) => res.status(201).json({message: "TASK CREATED", task: newTask}))
 }

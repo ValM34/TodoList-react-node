@@ -25,7 +25,5 @@ const User = sequelize.define('User', {
 
 module.exports = User;
 
-
-
-// `sequelize.define` also returns the model
-//console.log(User === sequelize.models.User); // true
+// Actualiser le modèle en BDD : 
+//User.sync({force: true});

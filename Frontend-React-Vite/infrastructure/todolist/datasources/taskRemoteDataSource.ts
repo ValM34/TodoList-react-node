@@ -26,6 +26,8 @@ export class TaskRemoteDataSourceImpl implements TaskRemoteDataSource {
             res[0].isDone,
             res[0].createdAt,
             res[0].updatedAt,
+            res[0].userId,
+            res[0].title,
           );
           console.log(task)
           resolve(task);
@@ -54,6 +56,8 @@ export class TaskRemoteDataSourceImpl implements TaskRemoteDataSource {
               task.isDone,
               task.createdAt,
               task.updatedAt,
+              task.userId,
+              task.title
             )
             return taskDto;
           }));

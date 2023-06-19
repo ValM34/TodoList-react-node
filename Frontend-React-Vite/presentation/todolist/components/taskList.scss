@@ -1,8 +1,32 @@
-a {
-  color: $c-green;
-  margin-right: 10px;
+.card-task {
+  .ant-card-head {
+    border-color: $c-green;
 
-  &:hover {
+    .ant-card-head-wrapper {
+      padding: 15px 0;
+
+      .ant-card-head-title {
+        white-space: wrap;
+      }
+    }
+  }
+
+  &.dark-mode {
+    .ant-card-head {
+      color: $c-white-2;
+    }
+  }
+
+  .task-content {
+    margin-bottom: 20px;
+  }
+
+  a {
     color: $c-green;
+    margin-right: 10px;
+
+    &:hover {
+      color: $c-green;
+    }
   }
 }

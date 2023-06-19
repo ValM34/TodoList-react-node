@@ -17,7 +17,8 @@ const onFinish = (values: any) => {
       "Authorization": ls
     },
     body: JSON.stringify({
-      content: values.content
+      content: values.content,
+      title: values.title,
     })
   })
     .then(res =>  res.json())
@@ -48,14 +49,21 @@ const onFinishFailed = (errorInfo: any) => {
       autoComplete="off"
     >
       <Form.Item
+        label="Titre"
+        name="title"
+        rules={[{ required: true, message: 'Veuillez écrire le titre de la tâche.' }]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
         label="Contenu"
         name="content"
-        rules={[{ required: true, message: 'Veuillez écrire le contenu de la tâche.' }]}
+        rules={[{ required: false, message: 'Veuillez écrire le contenu de la tâche.' }]}
       >
         <TextArea rows={4} />
       </Form.Item>
       <Button type="primary" htmlType="submit">
-        Submit
+        Valider
       </Button>
     </Form>
   );

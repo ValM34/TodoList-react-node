@@ -7,6 +7,8 @@ export class TaskDto {
     public readonly isDone: boolean,
     public readonly createdAt: string,
     public readonly updatedAt: string,
+    public readonly userId: string,
+    public readonly title: string,
   ) {}
 
   // Domain conversion methods
@@ -17,6 +19,8 @@ export class TaskDto {
       this.isDone,
       this.createdAt,
       this.updatedAt,
+      this.userId,
+      this.title,
     );
   }
 
@@ -27,6 +31,8 @@ export class TaskDto {
       task.isDone,
       task.createdAt,
       task.updatedAt,
+      task.userId,
+      task.title,
     );
   }
 
@@ -40,7 +46,7 @@ export class TaskDto {
   }
 
   static fromJson(json: string): TaskDto {
-    const { id, content, isDone, createdAt, updatedAt } =
+    const { id, content, isDone, createdAt, updatedAt, userId, title } =
       JSON.parse(json);
     return new TaskDto(
       id,
@@ -48,14 +54,16 @@ export class TaskDto {
       isDone,
       createdAt,
       updatedAt,
+      userId,
+      title,
     );
   }
 
   static fromJsonArray(jsonArray: string[]): TaskDto[] {
     const jsonParsed = JSON.parse(jsonArray);
     return jsonParsed.map((json) => {
-      const { id, content, isDone, createdAt, updatedAt } = json;
-      return new TaskDto(id, content, isDone, createdAt, updatedAt);
+      const { id, content, isDone, createdAt, updatedAt, userId, title } = json;
+      return new TaskDto(id, content, isDone, createdAt, updatedAt, userId, title);
     });
   }
 
@@ -66,6 +74,8 @@ export class TaskDto {
     isDone = this.isDone,
     createdAt = this.createdAt,
     updatedAt = this.updatedAt,
+    userId = this.updatedAt,
+    title = this.title,
   }: Partial<TaskDto>): TaskDto {
     return new TaskDto(
       id,
@@ -73,13 +83,16 @@ export class TaskDto {
       isDone,
       createdAt,
       updatedAt,
+      userId,
+      title,
     );
   }
 
   equals(other: TaskDto): boolean {
     return (
       this.id === other.id &&
-      this.content === other.content
+      this.content === other.content &&
+      this.title === other.title
     );
   }
 }

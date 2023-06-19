@@ -6,7 +6,6 @@ import TaskFetcherContext, {
 } from "../../../application/todolist/contexts/taskListFetcherContext";
 import LoadingSpinner from "../../../presentation/@shared/components/LoadingSpinner";
 import TaskList from "../components/TaskList";
-import { Button } from 'antd';
 
 const TaskDetailPage: React.FC = (props) => {
   const taskListFetcher = useContext(TaskFetcherContext);
