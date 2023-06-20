@@ -1,4 +1,5 @@
 import { TaskDto } from "../dtos/taskDto";
+import { useParams } from 'react-router-dom';
 
 interface TaskRemoteDataSource {
   getOneTaskById(id: string): Promise<TaskDto>;
@@ -9,7 +10,6 @@ export class TaskRemoteDataSourceImpl implements TaskRemoteDataSource {
   async getOneTaskById(id: string): Promise<TaskDto> {
     // Simulate a remote call (normally using fetch or axios with id as param)
     return new Promise((resolve, reject) => {
-      id = '27';
       const jwt = localStorage.getItem("token");
       fetch('http://127.0.0.1:3000/task/one/' + id, {
         method: 'GET',

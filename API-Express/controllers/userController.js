@@ -6,13 +6,6 @@ const jwtUtils = require('../utils/jwtUtils');
 const EMAIL_REGEX = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const PASSWORD_REGEX = /^((?=\S*?[A-Z])(?=\S*?[a-z])(?=\S*?[0-9]).{7,})\S$/;
 
-exports.getAllUsers = async (req, res, next) => {
-  const users = await User.findAll()
-    .then(users => {
-      res.status(200).json(users)
-    })
-}
-
 exports.subscription = async (req, res) => {
 
   // Params

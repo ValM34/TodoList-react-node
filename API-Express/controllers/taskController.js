@@ -27,12 +27,16 @@ exports.create = async (req, res, next) => {
 }
 
 exports.update = async (req, res, next) => {
-  const newTask = await Task.update({ content: req.body.content }, {
+  console.log(req.body)
+  const newTask = await Task.update({ content: req.body.content, title: req.body.title }, {
     where: {
       id: req.body.id
     }
   })
-    .then(() => res.status(201).json({message: "TASK CREATED"}))
+    .then(async () => {
+      const newTask = await Task.findOne({ where: { id: req.body.id } })
+        .then((task) => res.status(201).json({message: "TASK CREATED", task: task}))
+    })
 }
 
 exports.delete = async (req, res, next) => {

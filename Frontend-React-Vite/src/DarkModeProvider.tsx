@@ -1,9 +1,12 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 // Création du context pour le thème
 export const DarkModeContext = createContext();
 
 export default function DarkModeProvider({ children }) {
+
+  let isActive = localStorage.getItem('darkMode');
+
   const [darkMode, setDarkMode] = useState({
     isActif: false,
     primaryColor: "#00b96b",
@@ -15,9 +18,16 @@ export default function DarkModeProvider({ children }) {
     errorColor: "red",
     succesColor: "#006f40"
   });
+
+  useEffect(() => {
+    if(isActive === "true"){
+      toggleDarkMode();
+    }
+  }, [])
   
   function toggleDarkMode() {
     if(!darkMode.isActif){
+      localStorage.setItem('darkMode', JSON.stringify(true));
       return setDarkMode({
         isActif: true,
         primaryColor: "#006f40",
@@ -31,6 +41,7 @@ export default function DarkModeProvider({ children }) {
       });
     }
 
+    localStorage.setItem('darkMode', JSON.stringify(false));
     return setDarkMode({
       isActif: false,
       primaryColor: "#00b96b",

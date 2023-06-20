@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { DarkModeContext } from "../../DarkModeProvider";
-import ContextComponentTest from '../../../src/ContextComponentTest';
+import SwitchTheme from './SwitchTheme';
 
 function Header({ isLoggedIn }) {
 
@@ -30,7 +30,7 @@ function Header({ isLoggedIn }) {
             </>
             : ""
           }
-          <ContextComponentTest />
+          <SwitchTheme />
         </nav>
       </div>
     </header>

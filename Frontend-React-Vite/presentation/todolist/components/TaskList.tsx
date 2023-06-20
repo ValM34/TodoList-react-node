@@ -37,7 +37,7 @@ const TaskList: React.FC<TaskListProps> = ({ model }) => {
             <React.Fragment key={task.id}>
               {!task.isDone ?
                 <Col span={8}>
-                  <Card title={task.title} bordered={false} className={`card-task ${darkMode.className}`} style={{color: darkMode.textColorPrimary}}>
+                  <Card title={<a href={`./task/update/${task.id}`}>{task.title}</a>} bordered={false} className={`card-task ${darkMode.className}`} style={{color: darkMode.textColorPrimary}}>
                     <div className="task-content">{task.content}</div>
                     <CloseCircleOutlined style={{ fontSize: "20px", position: "absolute", right: "10px", top: "10px", color: darkMode.errorColor }} />
                     <a href="#">Marquer comme terminée</a>
@@ -60,7 +60,7 @@ const TaskList: React.FC<TaskListProps> = ({ model }) => {
           <React.Fragment key={task.id}>
             {task.isDone ?
               <Col span={8} key={task.id}>
-                <Card title={task.title} bordered={false} className={`card-task ${darkMode.className}`} style={{color: darkMode.textColorPrimary}}>
+                <Card title={<a href={`./task/update/${task.id}`}>{task.title}</a>} bordered={false} className={`card-task ${darkMode.className}`} style={{color: darkMode.textColorPrimary}}>
                   <div className="task-content">{task.content}</div>
                   <CheckCircleOutlined style={{ fontSize: "20px", position: "absolute", right: "10px", top: "10px", color: darkMode.succesColor }} />
                   <a href="#">Marquer comme non terminée</a>
@@ -82,7 +82,7 @@ const TaskList: React.FC<TaskListProps> = ({ model }) => {
         {tasks.map((task: TaskModel) => (
           <React.Fragment key={task.id}>
             <Col span={8} key={task.id}>
-              <Card title={task.title} bordered={false} className={`card-task ${darkMode.className}`} style={{color: darkMode.textColorPrimary}}>
+              <Card title={<a href={`./task/update/${task.id}`}>{task.title}</a>} bordered={false} className={`card-task ${darkMode.className}`} style={{color: darkMode.textColorPrimary}}>
                 <div className="task-content">{task.content}</div>
                 {task.isDone ? 
                     <>
