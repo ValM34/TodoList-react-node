@@ -9,8 +9,8 @@ export class GetAllTasks {
 
   async execute(): Promise<Task[]> {
     // Business logic
-    const task = await this.taskRepository.getAllTasks();
-    if (!task) {
+    const taskList = await this.taskRepository.getAllTasks();
+    if (!taskList) {
       throw new Error("Task not found");
     }
     /*if (!task.AreValid()) {
@@ -18,6 +18,6 @@ export class GetAllTasks {
     }*/ // @TODO => Créer AreValid();
 
     // Return value (Output)
-    return task;
+    return taskList;
   }
 }

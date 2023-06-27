@@ -6,19 +6,20 @@ export class Task {
     public readonly createdAt: string,
     public readonly updatedAt: string,
     public readonly userId: string,
-    public readonly title: string,
+    public readonly title: string
   ) {}
 
   // Validation methods
   isValid(): boolean {
     return (
+      this.id.length > 0 &&
       this.content.length > 0 &&
       this.createdAt.length > 0 &&
       this.updatedAt.length > 0 &&
       this.title.length > 0
     );
   }
-  
+
   // Immutability helpers methods
   copyWith({
     id = this.id,
@@ -28,7 +29,7 @@ export class Task {
     updatedAt = this.updatedAt,
     userId = this.userId,
     title = this.title,
-  }: Partial<Task>): Task{
+  }: Partial<Task>): Task {
     return new Task(id, content, isDone, createdAt, updatedAt, userId, title);
   }
 
